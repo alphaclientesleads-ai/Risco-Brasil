@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  
+  --color-brand-navy: #253464;
+  --color-brand-blue-light: #4B69CA;
+  --color-brand-gold: #B59354;
+  --color-brand-gold-dark: #4F4025;
+  --color-brand-cream: #F5F2ED;
+  --color-brand-gray: #F8F9FA;
+
+  --background-image-brand-gold-gradient: linear-gradient(to right, #B59354, #4F4025);
+  --background-image-brand-blue-gradient: linear-gradient(to right, #253464, #4B69CA);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-brand-gray);
+  color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+}
