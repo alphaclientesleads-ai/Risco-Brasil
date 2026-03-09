@@ -5,7 +5,7 @@ export const ProblemSection = () => {
   return (
     <section className="bg-slate-50 relative overflow-hidden border-t border-slate-200">
       {/* Scrolling Text Banner */}
-      <div className="bg-[var(--color-rb-gold)]/10 border-y border-[var(--color-rb-gold)]/20 py-3 overflow-hidden whitespace-nowrap backdrop-blur-sm">
+      <div className="bg-[var(--color-rb-gold)]/10 border-y border-[var(--color-rb-gold)]/20 py-3 overflow-hidden whitespace-nowrap">
         <motion.div 
           animate={{ x: ["0%", "-50%"] }}
           transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
@@ -31,7 +31,7 @@ export const ProblemSection = () => {
                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter grayscale contrast-125"
              />
              <div className="absolute bottom-0 left-0 p-8 z-20">
-               <div className="inline-block px-3 py-1 rounded-full bg-[var(--color-rb-gold)]/20 border border-[var(--color-rb-gold)]/30 text-[var(--color-rb-blue)] text-[10px] font-mono uppercase tracking-widest mb-4 backdrop-blur-md">
+               <div className="inline-block px-3 py-1 rounded-full bg-[var(--color-rb-gold)]/20 border border-[var(--color-rb-gold)]/30 text-[var(--color-rb-blue)] text-[10px] font-mono uppercase tracking-widest mb-4">
                  Realidade da Obra
                </div>
                <p className="text-white font-medium text-lg">
@@ -41,7 +41,6 @@ export const ProblemSection = () => {
           </div>
           
           <div>
-            <span className="text-xs text-[var(--color-rb-gold)] font-mono mb-4 block tracking-widest">[ O PROBLEMA ]</span>
             <h2 className="text-3xl md:text-5xl font-medium text-[var(--color-rb-blue)] mb-8 leading-tight tracking-tight">
               Você sabe muito bem...
             </h2>

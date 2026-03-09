@@ -1,5 +1,6 @@
 import React from 'react';
 import { Phone, Mail, MapPin, Instagram, Linkedin, Facebook } from 'lucide-react';
+import { Logo } from './Logo';
 
 export const Footer = () => {
   return (
@@ -7,12 +8,8 @@ export const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2">
-            <div className="text-2xl font-semibold tracking-tight text-white flex items-center gap-3 mb-6">
-              <div className="relative flex h-4 w-4">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-rb-gold)] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-4 w-4 bg-[var(--color-rb-gold)] shadow-[0_0_15px_rgba(197,160,89,0.8)]"></span>
-              </div>
-              <span className="tracking-[0.2em] font-mono">RISCO BRASIL</span>
+            <div className="mb-6">
+              <Logo className="h-12 w-auto" color="#ffffff" />
             </div>
             <p className="text-slate-400 font-light mb-8 max-w-sm leading-relaxed">
               A Risco Brasil Corretora de Seguros atua no mercado nacional desde 2013, consolidando experiência em seguros complexos e soluções financeiras para o setor de engenharia.

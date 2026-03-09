@@ -31,21 +31,12 @@ export const Hero = ({ scrollTo }: { scrollTo: (id: string) => void }) => {
             className="w-full h-full object-cover opacity-20 filter grayscale contrast-125"
           />
         </motion.div>
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-multiply pointer-events-none"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-rb-gold)]/10 border border-[var(--color-rb-gold)]/20 mb-8 backdrop-blur-sm">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-rb-gold)] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-rb-gold)]"></span>
-              </span>
-              <span className="text-[10px] uppercase tracking-widest text-[var(--color-rb-blue)] font-mono">Especialistas em Riscos de Engenharia</span>
-            </div>
-
             <h1 className="text-5xl lg:text-7xl font-medium text-[var(--color-rb-blue)] leading-[1.1] mb-8 tracking-tight">
               Seguro de Engenharia <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-rb-blue)] via-[var(--color-rb-gold)] to-[var(--color-rb-blue)]">
@@ -70,7 +61,7 @@ export const Hero = ({ scrollTo }: { scrollTo: (id: string) => void }) => {
               
               <button
                 onClick={() => window.open('https://wa.me/551123370104', '_blank')}
-                className="px-8 py-4 bg-transparent border border-slate-200 text-slate-700 rounded-full font-medium text-sm uppercase tracking-wider hover:bg-slate-50 transition-colors backdrop-blur-sm"
+                className="px-8 py-4 bg-transparent border border-slate-200 text-slate-700 rounded-full font-medium text-sm uppercase tracking-wider hover:bg-slate-50 transition-colors"
               >
                 Falar no WhatsApp
               </button>
@@ -94,8 +85,8 @@ export const Hero = ({ scrollTo }: { scrollTo: (id: string) => void }) => {
 
           {/* Right Form - Glassmorphism */}
           <div className="relative hidden lg:block">
-            <div className="absolute -inset-1 bg-gradient-to-r from-[var(--color-rb-gold)] to-[#e5c585] rounded-2xl blur opacity-20 animate-pulse"></div>
-            <div className="relative bg-white/80 backdrop-blur-xl border border-slate-200 p-8 rounded-2xl shadow-2xl">
+            <div className="absolute -inset-1 bg-gradient-to-r from-[var(--color-rb-gold)] to-[#e5c585] rounded-2xl opacity-10"></div>
+            <div className="relative bg-white/90 border border-slate-200 p-8 rounded-2xl shadow-xl">
               <div className="mb-6">
                 <h3 className="text-xl font-medium text-[var(--color-rb-blue)] mb-2">Diagnóstico Rápido</h3>
                 <p className="text-sm text-slate-500">Preencha para receber uma análise preliminar.</p>

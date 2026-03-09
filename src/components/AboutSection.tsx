@@ -13,14 +13,13 @@ export const AboutSection = () => {
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter grayscale contrast-125"
             />
             <div className="absolute bottom-0 left-0 p-8 z-20">
-              <div className="inline-block px-3 py-1 rounded-full bg-[var(--color-rb-gold)]/20 border border-[var(--color-rb-gold)]/30 text-[var(--color-rb-blue)] text-[10px] font-mono uppercase tracking-widest mb-4 backdrop-blur-md">
+              <div className="inline-block px-3 py-1 rounded-full bg-[var(--color-rb-gold)]/20 border border-[var(--color-rb-gold)]/30 text-[var(--color-rb-blue)] text-[10px] font-mono uppercase tracking-widest mb-4">
                 Desde 2013
               </div>
             </div>
           </div>
           
           <div>
-            <span className="text-xs text-[var(--color-rb-gold)] font-mono mb-4 block tracking-widest">[ QUEM SOMOS ]</span>
             <h2 className="text-3xl md:text-5xl font-medium text-[var(--color-rb-blue)] mb-8 leading-tight tracking-tight">
               Uma corretora de seguros em São Paulo, <span className="text-slate-400">com atuação desde 2013.</span>
             </h2>
