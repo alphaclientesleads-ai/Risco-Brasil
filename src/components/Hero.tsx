@@ -11,7 +11,7 @@ export const Hero = ({ scrollTo }: { scrollTo: (id: string) => void }) => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo('.hero-text-char',
+      gsap.fromTo('.hero-text-char', 
         { y: 100, opacity: 0 },
         { y: 0, opacity: 1, stagger: 0.02, duration: 1, ease: 'power4.out' }
       );
@@ -25,9 +25,9 @@ export const Hero = ({ scrollTo }: { scrollTo: (id: string) => void }) => {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-white via-white/90 to-white z-10"></div>
         <motion.div style={{ y, opacity }} className="absolute inset-0">
-          <img
-            src="https://lh3.googleusercontent.com/d/1xG18V9Ylt7vTUcpNwB5daG8ws5dGeGxo"
-            alt="Background Construction"
+          <img 
+            src="https://lh3.googleusercontent.com/d/1xG18V9Ylt7vTUcpNwB5daG8ws5dGeGxo" 
+            alt="Background Construction" 
             className="w-full h-full object-cover opacity-20 filter grayscale contrast-125"
           />
         </motion.div>
@@ -38,12 +38,12 @@ export const Hero = ({ scrollTo }: { scrollTo: (id: string) => void }) => {
           {/* Left Content */}
           <div className="max-w-3xl">
             <h1 className="text-5xl lg:text-7xl font-medium text-[var(--color-rb-blue)] leading-[1.1] mb-8 tracking-tight">
-              Seguro de Engenharia <br />
+              Seguro de Engenharia <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-rb-blue)] via-[var(--color-rb-gold)] to-[var(--color-rb-blue)]">
                 para destravar sua obra.
               </span>
             </h1>
-
+            
             <p className="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed max-w-xl font-light">
               A Risco Brasil atua desde 2013 ajudando engenheiros e empreiteiras a organizar o que o contratante exige. Sem burocracia, direto ao ponto.
             </p>
@@ -58,7 +58,7 @@ export const Hero = ({ scrollTo }: { scrollTo: (id: string) => void }) => {
                 </span>
                 <div className="absolute inset-0 bg-[#b49264] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-expo"></div>
               </button>
-
+              
               <button
                 onClick={() => window.open('https://wa.me/551123370104', '_blank')}
                 className="px-8 py-4 bg-transparent border border-slate-200 text-slate-700 rounded-full font-medium text-sm uppercase tracking-wider hover:bg-slate-50 transition-colors"
@@ -66,20 +66,20 @@ export const Hero = ({ scrollTo }: { scrollTo: (id: string) => void }) => {
                 Falar no WhatsApp
               </button>
             </div>
-
+            
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6 border-t border-slate-200 pt-8">
-              <div className="flex flex-col gap-1">
-                <span className="text-2xl font-bold text-[var(--color-rb-blue)] font-mono">600+</span>
-                <span className="text-[10px] text-slate-500 uppercase tracking-widest">Empresas Atendidas</span>
-              </div>
-              <div className="flex flex-col gap-1">
-                <span className="text-2xl font-bold text-[var(--color-rb-blue)] font-mono">13 Anos</span>
-                <span className="text-[10px] text-slate-500 uppercase tracking-widest">De Mercado</span>
-              </div>
-              <div className="flex flex-col gap-1 col-span-2 md:col-span-1">
-                <span className="text-2xl font-bold text-[var(--color-rb-blue)] font-mono">100%</span>
-                <span className="text-[10px] text-slate-500 uppercase tracking-widest">Online e Ágil</span>
-              </div>
+               <div className="flex flex-col gap-1">
+                 <span className="text-2xl font-bold text-[var(--color-rb-blue)] font-mono">600+</span>
+                 <span className="text-[10px] text-slate-500 uppercase tracking-widest">Empresas Atendidas</span>
+               </div>
+               <div className="flex flex-col gap-1">
+                 <span className="text-2xl font-bold text-[var(--color-rb-blue)] font-mono">13 Anos</span>
+                 <span className="text-[10px] text-slate-500 uppercase tracking-widest">De Mercado</span>
+               </div>
+               <div className="flex flex-col gap-1 col-span-2 md:col-span-1">
+                 <span className="text-2xl font-bold text-[var(--color-rb-blue)] font-mono">100%</span>
+                 <span className="text-[10px] text-slate-500 uppercase tracking-widest">Online e Ágil</span>
+               </div>
             </div>
           </div>
 
@@ -91,42 +91,36 @@ export const Hero = ({ scrollTo }: { scrollTo: (id: string) => void }) => {
                 <h3 className="text-xl font-medium text-[var(--color-rb-blue)] mb-2">Diagnóstico Rápido</h3>
                 <p className="text-sm text-slate-500">Preencha para receber uma análise preliminar.</p>
               </div>
-
-              <form className="space-y-4" onSubmit={async (e) => {
+              
+              <form className="space-y-4" onSubmit={(e) => {
                 e.preventDefault();
-                const btn = e.currentTarget.querySelector('button[type="submit"]');
-                if (btn) btn.innerHTML = 'Enviando...';
-
                 const formData = new FormData(e.currentTarget);
-
-                // Enviar para o PHP em background
-                try {
-                  await fetch('/lp/send-mail.php', {
-                    method: 'POST',
-                    body: formData
-                  });
-                } catch (error) {
-                  console.error('Erro ao enviar e-mail:', error);
-                }
-
-                // Redirecionar para arquivo HTML físico (mais seguro na Locaweb)
-                window.location.href = '/lp/lp-obrigado.html';
+                const data = Object.fromEntries(formData.entries());
+                const msg = `Olá! Vim pelo formulário da Hero e gostaria de uma cotação.
+Nome: ${data.nome}
+WhatsApp: ${data.whatsapp}
+Email: ${data.email}
+Serviço: ${data.servico}`;
+                window.open(`https://wa.me/551123370104?text=${encodeURIComponent(msg)}`, '_blank');
               }}>
                 <div className="space-y-4">
                   <div className="relative group">
-                    <input name="nome" type="text" required style={{ color: '#0f172a', backgroundColor: '#ffffff' }} className="w-full border-2 border-slate-900 rounded-xl px-4 py-3 font-bold text-base focus:border-[var(--color-rb-gold)] outline-none transition-all" placeholder="Nome Completo" />
+                    <input name="nome" type="text" required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-[var(--color-rb-blue)] text-sm focus:border-[var(--color-rb-gold)] focus:bg-white outline-none transition-all peer placeholder-transparent" placeholder="Nome" />
+                    <label className="absolute left-4 top-3 text-xs text-slate-500 uppercase tracking-widest transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:text-slate-400 peer-placeholder-shown:top-3.5 peer-focus:-top-2.5 peer-focus:text-xs peer-focus:text-[var(--color-rb-gold)] peer-focus:bg-white peer-focus:px-1 -top-2.5 bg-white px-1 pointer-events-none">Nome Completo</label>
+                  </div>
+                  
+                  <div className="relative group">
+                    <input name="whatsapp" type="tel" required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-[var(--color-rb-blue)] text-sm focus:border-[var(--color-rb-gold)] focus:bg-white outline-none transition-all peer placeholder-transparent" placeholder="WhatsApp" />
+                    <label className="absolute left-4 top-3 text-xs text-slate-500 uppercase tracking-widest transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:text-slate-400 peer-placeholder-shown:top-3.5 peer-focus:-top-2.5 peer-focus:text-xs peer-focus:text-[var(--color-rb-gold)] peer-focus:bg-white peer-focus:px-1 -top-2.5 bg-white px-1 pointer-events-none">WhatsApp</label>
                   </div>
 
                   <div className="relative group">
-                    <input name="whatsapp" type="tel" required style={{ color: '#0f172a', backgroundColor: '#ffffff' }} className="w-full border-2 border-slate-900 rounded-xl px-4 py-3 font-bold text-base focus:border-[var(--color-rb-gold)] outline-none transition-all" placeholder="Seu WhatsApp" />
+                    <input name="email" type="email" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-[var(--color-rb-blue)] text-sm focus:border-[var(--color-rb-gold)] focus:bg-white outline-none transition-all peer placeholder-transparent" placeholder="Email" />
+                    <label className="absolute left-4 top-3 text-xs text-slate-500 uppercase tracking-widest transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:text-slate-400 peer-placeholder-shown:top-3.5 peer-focus:-top-2.5 peer-focus:text-xs peer-focus:text-[var(--color-rb-gold)] peer-focus:bg-white peer-focus:px-1 -top-2.5 bg-white px-1 pointer-events-none">Email Corporativo</label>
                   </div>
 
                   <div className="relative group">
-                    <input name="email" type="email" required style={{ color: '#0f172a', backgroundColor: '#ffffff' }} className="w-full border-2 border-slate-900 rounded-xl px-4 py-3 font-bold text-base focus:border-[var(--color-rb-gold)] outline-none transition-all" placeholder="Seu E-mail Corporativo" />
-                  </div>
-
-                  <div className="relative group">
-                    <select name="servico" required style={{ color: '#0f172a', backgroundColor: '#ffffff' }} className="w-full border-2 border-slate-900 rounded-xl px-4 py-3 font-bold text-base focus:border-[var(--color-rb-gold)] outline-none transition-all appearance-none cursor-pointer">
+                    <select name="servico" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-[var(--color-rb-blue)] text-sm focus:border-[var(--color-rb-gold)] focus:bg-white outline-none transition-all appearance-none cursor-pointer">
                       <option value="" className="text-slate-400">Selecione o serviço...</option>
                       <option value="Seguro de Engenharia">Seguro de Engenharia</option>
                       <option value="Responsabilidade Civil">Responsabilidade Civil</option>
@@ -139,9 +133,9 @@ export const Hero = ({ scrollTo }: { scrollTo: (id: string) => void }) => {
                 </div>
 
                 <button type="submit" className="w-full bg-[var(--color-rb-gold)] text-white py-4 rounded-xl font-bold text-sm uppercase tracking-wider hover:bg-[#b49264] transition-colors flex items-center justify-center gap-2 mt-4 shadow-lg shadow-[var(--color-rb-gold)]/20">
-                  Solicitar Cotação
+                  Iniciar Cotação
                 </button>
-
+                
                 <p className="text-[10px] text-center text-slate-500 mt-4">
                   <CheckCircle2 className="w-3 h-3 inline mr-1 text-[var(--color-rb-gold)]" />
                   Dados protegidos e criptografados.
