@@ -15,13 +15,13 @@ export const Footer = () => {
               A Risco Brasil Corretora de Seguros atua no mercado nacional desde 2013, consolidando experiência em seguros complexos e soluções financeiras para o setor de engenharia.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-white hover:bg-[var(--color-rb-gold)] hover:text-white transition-all duration-300">
+              <a href="https://www.instagram.com/riscobrasil_seguros/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-white hover:bg-[var(--color-rb-gold)] hover:text-white transition-all duration-300">
                 <Instagram size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-white hover:bg-[var(--color-rb-gold)] hover:text-white transition-all duration-300">
+              <a href="https://www.linkedin.com/company/risco-brasil-seguros/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-white hover:bg-[var(--color-rb-gold)] hover:text-white transition-all duration-300">
                 <Linkedin size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-white hover:bg-[var(--color-rb-gold)] hover:text-white transition-all duration-300">
+              <a href="https://www.facebook.com/riscobrasilseguros/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-white hover:bg-[var(--color-rb-gold)] hover:text-white transition-all duration-300">
                 <Facebook size={18} />
               </a>
             </div>
