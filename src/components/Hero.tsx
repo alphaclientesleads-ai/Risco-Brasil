@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import gsap from 'gsap';
+import { trackMetaEvent } from '../utils/fbEvents';
 
 export const Hero = ({ scrollTo }: { scrollTo: (id: string) => void }) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -96,6 +97,17 @@ export const Hero = ({ scrollTo }: { scrollTo: (id: string) => void }) => {
                 e.preventDefault();
                 const formData = new FormData(e.currentTarget);
                 const data = Object.fromEntries(formData.entries());
+                
+                // Track Lead event via Meta CAPI
+                trackMetaEvent('Lead', {
+                  em: data.email as string,
+                  ph: data.whatsapp as string,
+                  fn: data.nome as string
+                }, {
+                  content_name: 'Diagnóstico Rápido Hero',
+                  content_category: data.servico as string
+                });
+
                 const msg = `Olá! Vim pelo formulário da Hero e gostaria de uma cotação.
 Nome: ${data.nome}
 WhatsApp: ${data.whatsapp}

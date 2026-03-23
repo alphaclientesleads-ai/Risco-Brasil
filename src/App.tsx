@@ -8,6 +8,7 @@ import { ProcessSection } from './components/ProcessSection';
 import { AboutSection } from './components/AboutSection';
 import { Footer } from './components/Footer';
 import { CheckCircle } from 'lucide-react';
+import { trackMetaEvent } from './utils/fbEvents';
 
 export default function App() {
   const scrollTo = (id: string) => {
@@ -195,6 +196,17 @@ export default function App() {
                 e.preventDefault();
                 const formData = new FormData(e.currentTarget);
                 const data = Object.fromEntries(formData.entries());
+
+                // Track Lead event via Meta CAPI
+                trackMetaEvent('Lead', {
+                  em: data.nome as string, // Note: no email in this form, using nome as fallback if needed or just ph
+                  ph: data.whatsapp as string
+                }, {
+                  content_name: 'Formulário Final App',
+                  content_category: data.tipo as string,
+                  value: data.valor === 'Acima de R$ 20M' ? 20000000 : 1000000 // example value
+                });
+
                 const msg = `Olá! Vim pelo site e gostaria de uma cotação de Seguro de Engenharia.
 
 *Nome:* ${data.nome}${data.cargo ? ' – ' + data.cargo : ''}
